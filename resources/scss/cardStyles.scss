@@ -1,0 +1,50 @@
+$cardColour: #ffffff;
+// Heading Card Style -- Generic card styling
+@mixin headingCardItem($active:0) {
+  grid-row: 1;
+  grid-column: 1/3;
+  @extend %cardSubMargin;
+  display: grid;
+  grid-template-columns: 92px auto;
+  img.thumbnail {
+    border-radius: 500px;
+  }
+  > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &::after {
+      content: url('/arrow.png');
+      position: absolute;
+      padding-right: 2rem;
+      padding-top: 0rem;
+
+
+      @if ($active==0){
+        transform: rotate(180deg);
+        right: 28px;
+      }@else{
+        right: 0%;
+      }
+    }
+  }
+
+  div.name {
+    font-family: 'Roboto-Bold';
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+  div.mobile{
+    font-family: 'Roboto-Light';
+    font-size: 15px;
+  }
+}
+
+// Styling Setup for the card.
+@mixin cardStyling {
+    background-color: #f4f2f3;
+    color: gray;
+    box-shadow: 5px 0px 10px 4px #dcdadb;
+    background-color: $cardColour;
+    font-family: 'Roboto-Regular', Helvetica;
+}

@@ -1,0 +1,63 @@
+@use './cardStyles.scss' as cardStyle;
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('/Roboto/Roboto-Regular.ttf') format('TrueType');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('/Roboto/Roboto-Bold.ttf') format('TrueType');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('/Roboto/Roboto-Light.ttf') format('TrueType');
+  font-weight: 400;
+}
+
+// CSS variables -- Address Text
+:root {
+  --card-address-text: 'Address: ';
+  --card-address-phone: 'Phone: ';
+  --card-address-email: 'Email: ';
+}
+
+body {
+  background-color: #f4f2f3;
+}
+
+nav.contactHeading {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  @include cardStyle.cardStyling;
+  display: flex;
+  align-items: center;
+  padding-left: 3em;
+
+  // Contacts Span Item
+  span.contentCount {
+    font-family: 'Roboto-Bold';
+    &:not(:empty)::after {
+      content: ' Contacts';
+      font-family: 'Roboto-Bold';
+    }
+  }
+  div.orderByItem{
+    position: absolute;
+    right: 0px;
+    margin-right: 6rem;
+
+    >select{
+        min-width: 150px;
+        border-color:gray;
+        border-radius:5px;
+        font-family: 'Roboto-Light';
+        font-size:15px;
+        margin-left:5px;
+    }
+  }
+}

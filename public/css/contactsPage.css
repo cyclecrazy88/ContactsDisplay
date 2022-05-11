@@ -1,0 +1,205 @@
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("/Roboto/Roboto-Regular.ttf") format("TrueType");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("/Roboto/Roboto-Bold.ttf") format("TrueType");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("/Roboto/Roboto-Light.ttf") format("TrueType");
+  font-weight: 400;
+}
+:root {
+  --card-address-text: "Address: ";
+  --card-address-phone: "Phone: ";
+  --card-address-email: "Email: ";
+}
+
+body {
+  background-color: #f4f2f3;
+}
+
+nav.contactHeading {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  background-color: #f4f2f3;
+  color: gray;
+  box-shadow: 5px 0px 10px 4px #dcdadb;
+  background-color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  display: flex;
+  align-items: center;
+  padding-left: 3em;
+}
+nav.contactHeading span.contentCount {
+  font-family: "Roboto-Bold";
+}
+nav.contactHeading span.contentCount:not(:empty)::after {
+  content: " Contacts";
+  font-family: "Roboto-Bold";
+}
+nav.contactHeading div.orderByItem {
+  position: absolute;
+  right: 0px;
+  margin-right: 6rem;
+}
+nav.contactHeading div.orderByItem > select {
+  min-width: 150px;
+  border-color: gray;
+  border-radius: 5px;
+  font-family: "Roboto-Light";
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+div.contactItem div.contactContainer:not(.itemActive) > div.heading, div.contactItem div.contactContainer.itemActive > div.bodyRight, div.contactItem div.contactContainer.itemActive > div.bodyLeft, div.contactItem div.contactContainer.itemActive > div.heading {
+  margin: 20px;
+  font-family: "Roboto-Regular";
+}
+
+div.contactItem div.contactContainer.itemActive > div.bodyRight div.email::before, div.contactItem div.contactContainer.itemActive > div.bodyRight div.phone::before, div.contactItem div.contactContainer.itemActive > div.bodyLeft::before {
+  font-family: "Roboto-Bold";
+  margin-bottom: 5px;
+  margin-right: 3px;
+  line-height: 22px;
+}
+
+div.contactItem {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 3em;
+  margin-right: 3em;
+}
+div.contactItem div.contactContainer {
+  margin-bottom: 1rem;
+  transition-property: height;
+  transition-duration: 3s;
+}
+div.contactItem div.contactContainer div.bodyLeft, div.contactItem div.contactContainer div.bodyRight {
+  transition: opacity 2s;
+}
+div.contactItem div.contactContainer.itemActive {
+  background-color: #f4f2f3;
+  color: gray;
+  box-shadow: 5px 0px 10px 4px #dcdadb;
+  background-color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-auto-rows: auto auto;
+  cursor: zoom-in;
+}
+div.contactItem div.contactContainer.itemActive > div.heading {
+  grid-row: 1;
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 92px auto;
+  border-bottom-style: solid;
+  border-bottom-color: #e9e9e9;
+  border-bottom-width: 1px;
+  padding-bottom: 1rem;
+}
+div.contactItem div.contactContainer.itemActive > div.heading img.thumbnail {
+  border-radius: 500px;
+}
+div.contactItem div.contactContainer.itemActive > div.heading > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+div.contactItem div.contactContainer.itemActive > div.heading > div::after {
+  content: url("/arrow.png");
+  position: absolute;
+  padding-right: 2rem;
+  padding-top: 0rem;
+  right: 0%;
+}
+div.contactItem div.contactContainer.itemActive > div.heading div.name {
+  font-family: "Roboto-Bold";
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+div.contactItem div.contactContainer.itemActive > div.heading div.mobile {
+  font-family: "Roboto-Light";
+  font-size: 15px;
+}
+div.contactItem div.contactContainer.itemActive > div.bodyLeft {
+  grid-row: 2;
+  grid-column: 1;
+}
+div.contactItem div.contactContainer.itemActive > div.bodyLeft::before {
+  content: var(--card-address-text);
+  margin-bottom: 3px;
+}
+div.contactItem div.contactContainer.itemActive > div.bodyLeft > div {
+  padding-left: 0.5rem;
+  font-size: 17px;
+}
+div.contactItem div.contactContainer.itemActive > div.bodyRight {
+  grid-row: 2;
+  grid-column: 2;
+  font-size: 17px;
+}
+div.contactItem div.contactContainer.itemActive > div.bodyRight div.phone::before {
+  content: var(--card-address-phone);
+}
+div.contactItem div.contactContainer.itemActive > div.bodyRight div.email::before {
+  content: var(--card-address-email);
+}
+div.contactItem div.contactContainer:not(.itemActive) {
+  background-color: #f4f2f3;
+  color: gray;
+  box-shadow: 5px 0px 10px 4px #dcdadb;
+  background-color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-auto-rows: auto auto;
+  cursor: zoom-out;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading {
+  grid-row: 1;
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 92px auto;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading img.thumbnail {
+  border-radius: 500px;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading > div::after {
+  content: url("/arrow.png");
+  position: absolute;
+  padding-right: 2rem;
+  padding-top: 0rem;
+  transform: rotate(180deg);
+  right: 28px;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading div.name {
+  font-family: "Roboto-Bold";
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading div.mobile {
+  font-family: "Roboto-Light";
+  font-size: 15px;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div:not(.heading) {
+  display: none;
+}
