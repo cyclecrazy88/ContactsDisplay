@@ -38,11 +38,14 @@ class DisplayContactList extends GetContactsData{
         // Loaded item listing
         this.loadList = Array()
         for (this.itemCount = 0; this.itemCount < 2; this.itemCount++){
-            await this.loadData();
+            var dataList = await this.getData()
+            this.loadList = this.loadList.concat(dataList)
+            //await this.loadData();
         }
         document.querySelector("span.contentCount").innerText = this.itemCount;
 
         this.setupEventHandlers()
+        this.sortList()
     }
     // Setup the event handlers for the action - open/close etc.
     setupEventHandlers(){
@@ -66,9 +69,14 @@ class DisplayContactList extends GetContactsData{
     sortList(){
         var thisRef = this
         async function changeEvent(eventData){
+            var selectedIndex = 0;
+            if (eventData instanceof Object){
+                selectedIndex = eventData.currentTarget.selectedIndex;
+            }
+
             var columnSearchKey =
                 document.querySelector("div.orderByItem > select")
-                [eventData.currentTarget.selectedIndex].value
+                [selectedIndex].value
 
             var regexNumber = new RegExp(/^([0-9\ -()]{1,})/)
 
@@ -121,7 +129,7 @@ class DisplayContactList extends GetContactsData{
         document.querySelector("div.orderByItem > select").
             addEventListener("change",changeEvent)
         //document.addEventListener
-
+        changeEvent()
     }
 
     async loadData(inputData){
