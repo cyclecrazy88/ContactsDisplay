@@ -4,11 +4,19 @@ This is a simple Laravel Application which will pull down an example contact, di
 
 Functionality does require an MySQL database to be setup before hand in Laravel to run.
 
+Dependancies:
+<pre>
+1, MySQL ENV file is setup with username/password information.
+2, Following database table is setup for local data caching.
+3, Run as a Laravel app.
+</pre>
+
 https://laravel.com/ - Laravel App
 
 App Functionality - Laravel - Routing (Requests in/out) and database storage.
 
 Database Structure for Contacts List:
+<pre>
 key	int	NO	PRI		auto_increment
 email	varchar(250)	YES			
 phone	varchar(250)	YES			
@@ -18,7 +26,8 @@ city	varchar(250)	YES
 country	varchar(250)	YES			
 postcode	varchar(250)	YES			
 state	varchar(250)	YES			
-thumbnail	varchar(250)	YES			
+thumbnail	varchar(250)	YES		
+</pre>	
 
 Once the user clicks on the Save button, the functionality will find a local 'record' for the item in the known contacts list,
 then attempt to update this and provide this as a record in the database in Laravel.
