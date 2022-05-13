@@ -15,7 +15,7 @@ https://laravel.com/ - Laravel App
 
 App Functionality - Laravel - Routing (Requests in/out) and database storage.
 
-Database Structure for Contacts List:
+Database Structure for Contacts List - Table name (ContactsList):
 <pre>
 key	int	NO	PRI		auto_increment
 email	varchar(250)	YES			
