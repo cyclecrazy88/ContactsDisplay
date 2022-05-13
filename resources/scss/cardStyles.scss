@@ -1,15 +1,62 @@
+@use './settings.scss' as setting;
 $cardColour: #ffffff;
+
+%button-transisition {
+  transition-property: opacity;
+  transition-duration: 0.25s;
+}
+
 // Heading Card Style -- Generic card styling
-@mixin headingCardItem($active:0) {
+@mixin headingCardItem($active: 0) {
   grid-row: 1;
   grid-column: 1/3;
   @extend %cardSubMargin;
   display: grid;
-  grid-template-columns: 92px auto;
+  grid-template-columns: 92px minmax(max-content, auto) auto;
   img.thumbnail {
     border-radius: 500px;
+    grid-row: 1;
+    grid-column: 1;
   }
-  > div {
+  > div.button {
+    grid-row: 1;
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-right:5rem;
+    gap:1rem;
+  }
+
+  > div > button.save[record_set="true"]{
+      opacity: 0.5;
+      display:none;
+  }
+
+  > div > button {
+    position: relative;
+    right: 0px;
+    background-color: #f4f2f3;
+    font-family: setting.$fontStyleBold;
+    border-style: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    cursor: grab;
+    @extend %button-transisition;
+
+    &:hover {
+      opacity: 0.5;
+    }
+    @if ($active==0) {
+      opacity: 0.5;
+    }
+  }
+  > div.desc {
+    grid-row: 1;
+    grid-column: 2;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -20,31 +67,57 @@ $cardColour: #ffffff;
       padding-top: 0rem;
 
 
-      @if ($active==0){
-        transform: rotate(180deg);
+      transition-property: transform, right;
+      transition-duration:0.25s;
+      transition-timing-function: ease-in;
+
+      //animation-duration: 0.25s;
+
+      @if ($active==0) {
+        transform: rotate(0.5turn);
         right: 28px;
-      }@else{
+        //right:0%;
+        //animation-name: animateForward;
+      } @else {
         right: 0%;
+        //animation-name: animateBackwards;
+      }
+    }
+
+    @keyframes animateForward {
+      from {
+        transform: 0deg;
+      }
+      to {
+        transform: 180deg;
+      }
+    }
+    @keyframes animateBackwards {
+      to {
+        transform: 0deg;
+      }
+      from {
+        transform: 180deg;
       }
     }
   }
 
   div.name {
-    font-family: 'Roboto-Bold';
+    font-family: setting.$fontStyleBold;
     font-size: 20px;
     margin-bottom: 3px;
   }
-  div.mobile{
-    font-family: 'Roboto-Light';
+  div.mobile {
+    font-family: setting.$fontStyleLight;
     font-size: 15px;
   }
 }
 
 // Styling Setup for the card.
 @mixin cardStyling {
-    background-color: #f4f2f3;
-    color: gray;
-    box-shadow: 5px 0px 10px 4px #dcdadb;
-    background-color: $cardColour;
-    font-family: 'Roboto-Regular', Helvetica;
+  background-color: #f4f2f3;
+  color: gray;
+  box-shadow: 5px 0px 10px 4px #dcdadb;
+  background-color: $cardColour;
+  font-family: setting.$fontStyle;
 }

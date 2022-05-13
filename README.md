@@ -1,10 +1,27 @@
-A simply contacts display demo using an example feed from https://randomuser.me/api/.
+Laravel Contacts Application
 
-The functionality simply pulls the data from the source API includes a little display and a sort function for various fields.
+This is a simple Laravel Application which will pull down an example contact, display some information and allow the user 'update' append the information as desired to a local database.
 
-Included items:
-1, Display a couple of items from https://randomuser.me/api/
-2, Expand/Close the items. To just show the heading and the description sections.
-3, Sort the items by various fields.
+Functionality does require an MySQL database to be setup before hand in Laravel to run.
 
-This is a Laravel Application, to use simply 'initialize a copy' of a Laravel application and extract into the source directory for the GitHub contents.
+https://laravel.com/ - Laravel App
+
+App Functionality - Laravel - Routing (Requests in/out) and database storage.
+
+Database Structure for Contacts List:
+key	int	NO	PRI		auto_increment
+email	varchar(250)	YES			
+phone	varchar(250)	YES			
+mobile	varchar(250)	YES			
+name	varchar(250)	YES			
+city	varchar(250)	YES			
+country	varchar(250)	YES			
+postcode	varchar(250)	YES			
+state	varchar(250)	YES			
+thumbnail	varchar(250)	YES			
+
+Once the user clicks on the Save button, the functionality will find a local 'record' for the item in the known contacts list,
+then attempt to update this and provide this as a record in the database in Laravel.
+
+Backend Wise - The functionality is currently pretty lightweight, it's just used to set/update a local record.
+Frontend Wise - Namely JavaScript to control the screen, with CSS/SASS being used to update and coordinate the 'state' for the running of the Application itself.

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+include_once(resource_path()."/build/contacts_entries.php");
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/cachedItems/',function(){
+    $contacts = new \Contacts_Entries\GetContactsList();
+
+    return response()->json($contacts);
+});
+
+Route::post('/cachedSet/',function(Request $request){
+    $data = Array();
+    $contentData = parse_str($request->getContent(),$data);
+    #echo "Cached Data...\n ".var_export($data,true)."\n";
+
+    $updateData = new \Contacts_Entries\UpdateContactsList($data);
+    return response()->json($updateData);
 });

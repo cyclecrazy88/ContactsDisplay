@@ -1,4 +1,5 @@
 @use './cardStyles.scss' as cardStyle;
+@use './settings.scss' as setting;
 
 @font-face {
   font-family: 'Roboto-Regular';
@@ -40,10 +41,10 @@ nav.contactHeading {
 
   // Contacts Span Item
   span.contentCount {
-    font-family: 'Roboto-Bold';
+    font-family: setting.$fontStyleBold;
     &:not(:empty)::after {
       content: ' Contacts';
-      font-family: 'Roboto-Bold';
+      font-family: setting.$fontStyleBold;
     }
   }
   div.orderByItem{
@@ -55,7 +56,7 @@ nav.contactHeading {
         min-width: 150px;
         border-color:gray;
         border-radius:5px;
-        font-family: 'Roboto-Light';
+        font-family: setting.$fontStyleLight;
         font-size:15px;
         margin-left:5px;
     }

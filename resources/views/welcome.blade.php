@@ -5,7 +5,7 @@
         <link type="text/css" rel="stylesheet" href="/css/contactsPage.css"/>
     </head>
     <body>
-        <script type="module" src="/js/contactsList.js"></script>
+        <script type="module" src="/js/contactsList_src.js"></script>
         <nav class="contactHeading">
             <span class="contentCount"></span>
 

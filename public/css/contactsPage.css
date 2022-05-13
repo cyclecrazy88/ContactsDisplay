@@ -1,3 +1,8 @@
+div.contactItem div.contactContainer.itemActive > div.heading > div > button, div.contactItem div.contactContainer:not(.itemActive) > div.heading > div > button {
+  transition-property: opacity;
+  transition-duration: 0.25s;
+}
+
 @font-face {
   font-family: "Roboto-Regular";
   src: url("/Roboto/Roboto-Regular.ttf") format("TrueType");
@@ -39,11 +44,11 @@ nav.contactHeading {
   padding-left: 3em;
 }
 nav.contactHeading span.contentCount {
-  font-family: "Roboto-Bold";
+  font-family: "Roboto-Bold", Helvetica;
 }
 nav.contactHeading span.contentCount:not(:empty)::after {
   content: " Contacts";
-  font-family: "Roboto-Bold";
+  font-family: "Roboto-Bold", Helvetica;
 }
 nav.contactHeading div.orderByItem {
   position: absolute;
@@ -54,18 +59,18 @@ nav.contactHeading div.orderByItem > select {
   min-width: 150px;
   border-color: gray;
   border-radius: 5px;
-  font-family: "Roboto-Light";
+  font-family: "Roboto-Light", Helvetica;
   font-size: 15px;
   margin-left: 5px;
 }
 
 div.contactItem div.contactContainer:not(.itemActive) > div.heading, div.contactItem div.contactContainer.itemActive > div.bodyRight, div.contactItem div.contactContainer.itemActive > div.bodyLeft, div.contactItem div.contactContainer.itemActive > div.heading {
   margin: 20px;
-  font-family: "Roboto-Regular";
+  font-family: "Roboto-Regular", Helvetica;
 }
 
 div.contactItem div.contactContainer.itemActive > div.bodyRight div.email::before, div.contactItem div.contactContainer.itemActive > div.bodyRight div.phone::before, div.contactItem div.contactContainer.itemActive > div.bodyLeft::before {
-  font-family: "Roboto-Bold";
+  font-family: "Roboto-Bold", Helvetica;
   margin-bottom: 5px;
   margin-right: 3px;
   line-height: 22px;
@@ -90,6 +95,38 @@ div.contactItem div.contactContainer {
 div.contactItem div.contactContainer div.bodyLeft, div.contactItem div.contactContainer div.bodyRight {
   transition: opacity 2s;
 }
+@-webkit-keyframes sizeAnimation {
+  from {
+    height: 112px;
+  }
+  to {
+    height: 273px;
+  }
+}
+@keyframes sizeAnimation {
+  from {
+    height: 112px;
+  }
+  to {
+    height: 273px;
+  }
+}
+@-webkit-keyframes sizeAnimationCompress {
+  from {
+    height: 273px;
+  }
+  to {
+    height: 112px;
+  }
+}
+@keyframes sizeAnimationCompress {
+  from {
+    height: 273px;
+  }
+  to {
+    height: 112px;
+  }
+}
 div.contactItem div.contactContainer.itemActive {
   background-color: #f4f2f3;
   color: gray;
@@ -100,12 +137,19 @@ div.contactItem div.contactContainer.itemActive {
   grid-template-columns: 50% 50%;
   grid-auto-rows: auto auto;
   cursor: zoom-in;
+  -webkit-animation-name: sizeAnimation;
+          animation-name: sizeAnimation;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  min-height: 72px;
+  overflow: hidden;
 }
 div.contactItem div.contactContainer.itemActive > div.heading {
   grid-row: 1;
   grid-column: 1/3;
   display: grid;
-  grid-template-columns: 92px auto;
+  grid-template-columns: 92px minmax(-webkit-max-content, auto) auto;
+  grid-template-columns: 92px minmax(max-content, auto) auto;
   border-bottom-style: solid;
   border-bottom-color: #e9e9e9;
   border-bottom-width: 1px;
@@ -113,26 +157,95 @@ div.contactItem div.contactContainer.itemActive > div.heading {
 }
 div.contactItem div.contactContainer.itemActive > div.heading img.thumbnail {
   border-radius: 500px;
+  grid-row: 1;
+  grid-column: 1;
 }
-div.contactItem div.contactContainer.itemActive > div.heading > div {
+div.contactItem div.contactContainer.itemActive > div.heading > div.button {
+  grid-row: 1;
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-right: 5rem;
+  gap: 1rem;
+}
+div.contactItem div.contactContainer.itemActive > div.heading > div > button.save[record_set=true] {
+  opacity: 0.5;
+  display: none;
+}
+div.contactItem div.contactContainer.itemActive > div.heading > div > button {
+  position: relative;
+  right: 0px;
+  background-color: #f4f2f3;
+  font-family: "Roboto-Bold", Helvetica;
+  border-style: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+div.contactItem div.contactContainer.itemActive > div.heading > div > button:hover {
+  opacity: 0.5;
+}
+div.contactItem div.contactContainer.itemActive > div.heading > div.desc {
+  grid-row: 1;
+  grid-column: 2;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-div.contactItem div.contactContainer.itemActive > div.heading > div::after {
+div.contactItem div.contactContainer.itemActive > div.heading > div.desc::after {
   content: url("/arrow.png");
   position: absolute;
   padding-right: 2rem;
   padding-top: 0rem;
+  transition-property: transform, right;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in;
   right: 0%;
 }
+@-webkit-keyframes animateForward {
+  from {
+    transform: 0deg;
+  }
+  to {
+    transform: 180deg;
+  }
+}
+@keyframes animateForward {
+  from {
+    transform: 0deg;
+  }
+  to {
+    transform: 180deg;
+  }
+}
+@-webkit-keyframes animateBackwards {
+  to {
+    transform: 0deg;
+  }
+  from {
+    transform: 180deg;
+  }
+}
+@keyframes animateBackwards {
+  to {
+    transform: 0deg;
+  }
+  from {
+    transform: 180deg;
+  }
+}
 div.contactItem div.contactContainer.itemActive > div.heading div.name {
-  font-family: "Roboto-Bold";
+  font-family: "Roboto-Bold", Helvetica;
   font-size: 20px;
   margin-bottom: 3px;
 }
 div.contactItem div.contactContainer.itemActive > div.heading div.mobile {
-  font-family: "Roboto-Light";
+  font-family: "Roboto-Light", Helvetica;
   font-size: 15px;
 }
 div.contactItem div.contactContainer.itemActive > div.bodyLeft {
@@ -167,39 +280,101 @@ div.contactItem div.contactContainer:not(.itemActive) {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-auto-rows: auto auto;
+  -webkit-animation-name: sizeAnimationCompress;
+          animation-name: sizeAnimationCompress;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
   cursor: zoom-out;
 }
 div.contactItem div.contactContainer:not(.itemActive) > div.heading {
   grid-row: 1;
   grid-column: 1/3;
   display: grid;
-  grid-template-columns: 92px auto;
+  grid-template-columns: 92px minmax(-webkit-max-content, auto) auto;
+  grid-template-columns: 92px minmax(max-content, auto) auto;
+  height: 72px;
 }
 div.contactItem div.contactContainer:not(.itemActive) > div.heading img.thumbnail {
   border-radius: 500px;
+  grid-row: 1;
+  grid-column: 1;
 }
-div.contactItem div.contactContainer:not(.itemActive) > div.heading > div {
+div.contactItem div.contactContainer:not(.itemActive) > div.heading > div.button {
+  grid-row: 1;
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-right: 5rem;
+  gap: 1rem;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading > div > button.save[record_set=true] {
+  opacity: 0.5;
+  display: none;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading > div > button {
+  position: relative;
+  right: 0px;
+  background-color: #f4f2f3;
+  font-family: "Roboto-Bold", Helvetica;
+  border-style: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  cursor: -webkit-grab;
+  cursor: grab;
+  opacity: 0.5;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading > div > button:hover {
+  opacity: 0.5;
+}
+div.contactItem div.contactContainer:not(.itemActive) > div.heading > div.desc {
+  grid-row: 1;
+  grid-column: 2;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-div.contactItem div.contactContainer:not(.itemActive) > div.heading > div::after {
+div.contactItem div.contactContainer:not(.itemActive) > div.heading > div.desc::after {
   content: url("/arrow.png");
   position: absolute;
   padding-right: 2rem;
   padding-top: 0rem;
-  transform: rotate(180deg);
+  transition-property: transform, right;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in;
+  transform: rotate(0.5turn);
   right: 28px;
 }
+@keyframes animateForward {
+  from {
+    transform: 0deg;
+  }
+  to {
+    transform: 180deg;
+  }
+}
+@keyframes animateBackwards {
+  to {
+    transform: 0deg;
+  }
+  from {
+    transform: 180deg;
+  }
+}
 div.contactItem div.contactContainer:not(.itemActive) > div.heading div.name {
-  font-family: "Roboto-Bold";
+  font-family: "Roboto-Bold", Helvetica;
   font-size: 20px;
   margin-bottom: 3px;
 }
 div.contactItem div.contactContainer:not(.itemActive) > div.heading div.mobile {
-  font-family: "Roboto-Light";
+  font-family: "Roboto-Light", Helvetica;
   font-size: 15px;
 }
 div.contactItem div.contactContainer:not(.itemActive) > div:not(.heading) {
+  position: relative;
+  overflow: hidden;
   display: none;
 }
