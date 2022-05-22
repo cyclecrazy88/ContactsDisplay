@@ -29,6 +29,41 @@ state	varchar(250)	YES
 thumbnail	varchar(250)	YES		
 </pre>	
 
+Database Structure for Contacts List - Table name (CommentsList):
+<pre>
+key	int	NO	PRI		auto_increment
+comment	text	YES			
+</pre>
+
+Create Table SQL Statement:
+<pre>
+create table ContactsList(
+	`key` int primary key auto_increment,
+    email varchar(250),
+    phone varchar(250),
+    mobile varchar(250),
+    `name` varchar(250),
+    city varchar(250),
+    country varchar(250),
+    postcode varchar(250),
+    state varchar(250),
+    thumbnail varchar(250)
+);
+
+create table CommentsList(
+	`key` int primary key auto_increment,
+    `comment` text
+);
+
+create table users(
+	`id` int primary key auto_increment,
+    name varchar(250),
+    email varchar(250),
+    timestamp DateTime,
+    password varchar(250)
+);
+</pre>
+
 Once the user clicks on the Save button, the functionality will find a local 'record' for the item in the known contacts list,
 then attempt to update this and provide this as a record in the database in Laravel.
 

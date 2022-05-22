@@ -1,0 +1,152 @@
+@use './settings.scss' as setting;
+@use './cardStyles.scss' as card;
+@use './buttonStyle.scss' as button;
+
+body {
+  background-color: setting.$backgroundColorDefault;
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('/Roboto/Roboto-Regular.ttf') format('TrueType');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('/Roboto/Roboto-Bold.ttf') format('TrueType');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('/Roboto/Roboto-Light.ttf') format('TrueType');
+  font-weight: 400;
+}
+
+@mixin input_width {
+  @media (min-width: 992px) {
+    width: 200px;
+    max-width: 90%;
+    min-width: 200px;
+  }
+  @media (min-width: 500px) and (max-width: 992px) {
+    min-width: 200px;
+    max-width: 90%;
+  }
+  @media (max-width: 500px) {
+    min-width: 70%;
+    max-width: 90%;
+  }
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.loginContainer {
+  div.loginSection {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    @include card.cardStyling;
+
+    @media (min-width: 992px) {
+      width: 50%;
+      min-width: 200px;
+      max-width: 400px;
+    }
+    @media (max-width: 992px) {
+      width: 90%;
+    }
+
+    padding-bottom: 1rem;
+
+    //height:50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    > h1 {
+      text-align: center;
+      width: 100%;
+      padding-top: 1rem;
+    }
+
+    > button {
+      margin-top: 1rem;
+      @include button.button_settings;
+      @include input_width;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    div.registerButton{
+        padding-top:10px;
+    }
+
+    div {
+        // Input container items
+      margin: auto;
+      text-align: center;
+
+
+      // Slight gap for the email option
+      input.email{
+          margin-top:5px;
+      }
+
+      // Fields, text password, span etc.
+      input[type='text'],
+      input[type='password'],
+      span,div {
+        margin-bottom: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include input_width;
+
+        &::placeholder {
+          font-family: setting.$fontStyleLight;
+          color: gray;
+        }
+        @include button.input_setting2;
+      }
+      input[type='text'],
+      input[type='password'] {
+        display: block;
+      }
+      // Register button action
+      input.register {
+        /*
+          &::after{
+              content:"Register: ";
+              position:relative;
+              top:-3px;
+              font-family: setting.$fontStyleLight;
+              color:darkgray;
+          }
+          */
+        &:checked {
+          background-color: darkgray;
+          color: darkgray;
+        }
+      }
+      // -----------------------------------------
+      // Checkbox - selection for field register.
+      //    User Click eVents...
+      // -----------------------------------------
+      div.registerFields {
+        display: none;
+      }
+      input.register:checked + div.registerFields {
+        display: initial;
+      }
+    }
+  }
+
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+}

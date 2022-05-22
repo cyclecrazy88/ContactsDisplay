@@ -18,6 +18,12 @@ div.contactItem div.contactContainer.itemActive > div.heading > div > button, di
   src: url("/Roboto/Roboto-Light.ttf") format("TrueType");
   font-weight: 400;
 }
+nav.contactHeading div.orderByItem {
+  position: absolute;
+  right: 0px;
+  margin-right: 6rem;
+}
+
 :root {
   --card-address-text: "Address: ";
   --card-address-phone: "Phone: ";
@@ -49,11 +55,6 @@ nav.contactHeading span.contentCount {
 nav.contactHeading span.contentCount:not(:empty)::after {
   content: " Contacts";
   font-family: "Roboto-Bold", Helvetica;
-}
-nav.contactHeading div.orderByItem {
-  position: absolute;
-  right: 0px;
-  margin-right: 6rem;
 }
 nav.contactHeading div.orderByItem > select {
   min-width: 150px;

@@ -1,0 +1,36 @@
+@use './settings.scss' as setting;
+
+%button-transisition {
+  transition-property: opacity;
+  transition-duration: 0.25s;
+}
+
+@mixin button_settings {
+  position: relative;
+  right: 0px;
+  background-color: #f4f2f3;
+  font-family: setting.$fontStyleBold;
+  border-style: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  cursor: grab;
+}
+
+@mixin input_setting {
+  min-width: 150px;
+  border-color: gray;
+  border-radius: 5px;
+  font-family: setting.$fontStyleLight;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+@mixin input_setting2 {
+  border-color: setting.$backgroundColorDefault;
+  border-radius: 5px;
+  font-family: setting.$fontStyleLight;
+  font-size: 15px;
+}

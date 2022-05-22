@@ -1,0 +1,166 @@
+@use './headingStyles.scss' as heading with($page_type: 'summary');
+@use './cardStyles.scss' as cardStyle;
+@use './settings.scss' as setting;
+@use './buttonStyle.scss' as button;
+
+%detailCardItem {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25em;
+
+  padding: 0.75rem;
+  @include setting.defaultFontStyleLight;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: setting.$backgroundColorDefault;
+  border-radius: 25px;
+}
+
+div.card_item.showItem{
+    display:grid;
+}
+div.card_item.hideItem{
+    display:none;
+}
+
+div.card_container{
+    padding-top: 1.5rem;
+}
+
+nav.contactHeading{
+    >span.headingText{
+        @include setting.defaultFontStyleBold;
+    }
+}
+
+div.card_item {
+  @include cardStyle.cardStyling;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 1rem;
+
+  display: grid;
+  @media (min-width: 500px) {
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: auto auto auto;
+    gap: 0.5em;
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: auto;
+    grid-auto-rows: auto auto auto;
+    gap: 0.5em;
+  }
+
+  > div {
+    @include setting.defaultFontStyle;
+    //padding:0.25em;
+  }
+
+  div.headingSection {
+    @media (min-width: 500px) {
+      grid-column: 1/3;
+    }
+
+    display: grid;
+    grid-template-columns: 100px auto;
+
+    div.key {
+      display: none;
+    }
+    div.name {
+      margin-top: auto;
+      margin-bottom: auto;
+      @media (min-width: 500px) {
+        text-align: left;
+      }
+      @media (max-width: 500px) {
+        text-align: left;
+      }
+
+      @include setting.defaultFontStyleBold;
+    }
+  }
+
+  div.userComment {
+    @media (min-width: 500px) {
+      grid-column: 1/3;
+    }
+    //margin: auto;
+    display: flex;
+    justify-content: center;
+
+    &::before {
+      @media (min-width: 500px) {
+        content: 'Comment: ';
+        position: relative;
+        top: 2.5rem;
+        padding-right: 1rem;
+        @include setting.defaultFontStyleLight;
+      }
+      @media (max-width: 500px) {
+        content: 'Comment: ';
+        position: relative;
+        padding-right: 1rem;
+        //top: 2.5rem;
+        @include setting.defaultFontStyleLight;
+      }
+    }
+
+    > textarea {
+      padding: 0.25rem;
+      @media (min-width: 500px) {
+        width: 66%;
+      }
+      @media (max-width: 500px) {
+        width: 66%;
+      }
+
+      height: 5rem;
+      @include button.button_settings;
+    }
+  }
+
+  // Contact detail styling
+  div.contactAction {
+    @extend %detailCardItem;
+    &::before {
+      content: 'Contact Details';
+      @include setting.defaultFontStyleBold;
+      @media (min-width: 500px) {
+        text-align: left;
+      }
+      @media (max-width: 500px) {
+        text-align: left;
+      }
+    }
+    @media (min-width: 500px) {
+      text-align: left;
+    }
+    @media (max-width: 500px) {
+      text-align: left;
+    }
+  }
+
+  div.contactAddress {
+    &::before {
+      content: 'Address Details';
+      @include setting.defaultFontStyleBold;
+      @media (min-width: 500px) {
+        text-align: right;
+      }
+      @media (max-width: 500px) {
+        text-align: left;
+      }
+    }
+    @extend %detailCardItem;
+    @media (min-width: 500px) {
+      text-align: right;
+    }
+    @media (max-width: 500px) {
+      text-align: left;
+    }
+  }
+}

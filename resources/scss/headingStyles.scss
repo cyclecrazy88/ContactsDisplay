@@ -1,5 +1,8 @@
 @use './cardStyles.scss' as cardStyle;
 @use './settings.scss' as setting;
+@use './buttonStyle.scss' as button;
+
+$page_type: 'contacts' !default;
 
 @font-face {
   font-family: 'Roboto-Regular';
@@ -17,6 +20,12 @@
   font-weight: 400;
 }
 
+%dropDownSelectLocation {
+  position: absolute;
+  right: 0px;
+  margin-right: 6rem;
+}
+
 // CSS variables -- Address Text
 :root {
   --card-address-text: 'Address: ';
@@ -25,7 +34,7 @@
 }
 
 body {
-  background-color: #f4f2f3;
+  background-color: setting.$backgroundColorDefault;
 }
 
 nav.contactHeading {
@@ -39,26 +48,27 @@ nav.contactHeading {
   align-items: center;
   padding-left: 3em;
 
-  // Contacts Span Item
-  span.contentCount {
-    font-family: setting.$fontStyleBold;
-    &:not(:empty)::after {
-      content: ' Contacts';
+  @if ($page_type == 'contacts') {
+    // Contacts Span Item
+    span.contentCount {
       font-family: setting.$fontStyleBold;
+      &:not(:empty)::after {
+        content: ' Contacts';
+        font-family: setting.$fontStyleBold;
+      }
     }
-  }
-  div.orderByItem{
-    position: absolute;
-    right: 0px;
-    margin-right: 6rem;
-
-    >select{
-        min-width: 150px;
-        border-color:gray;
-        border-radius:5px;
-        font-family: setting.$fontStyleLight;
-        font-size:15px;
-        margin-left:5px;
+    div.orderByItem {
+      @extend %dropDownSelectLocation;
+      > select {
+        @include button.input_setting;
+      }
+    }
+  } @else if ($page_type == 'summary') {
+    div.country {
+      @extend %dropDownSelectLocation;
+      > select {
+        @include button.input_setting;
+      }
     }
   }
 }

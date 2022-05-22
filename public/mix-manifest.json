@@ -1,4 +1,6 @@
 {
     "/js/contactsList_src.js": "/js/contactsList_src.js",
+    "/css/login.css": "/css/login.css",
+    "/css/detailCache.css": "/css/detailCache.css",
     "/css/contactsPage.css": "/css/contactsPage.css"
 }

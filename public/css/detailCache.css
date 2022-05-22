@@ -1,0 +1,240 @@
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("/Roboto/Roboto-Regular.ttf") format("TrueType");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("/Roboto/Roboto-Bold.ttf") format("TrueType");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("/Roboto/Roboto-Light.ttf") format("TrueType");
+  font-weight: 400;
+}
+nav.contactHeading div.country {
+  position: absolute;
+  right: 0px;
+  margin-right: 6rem;
+}
+
+:root {
+  --card-address-text: "Address: ";
+  --card-address-phone: "Phone: ";
+  --card-address-email: "Email: ";
+}
+
+body {
+  background-color: #f4f2f3;
+}
+
+nav.contactHeading {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  background-color: #f4f2f3;
+  color: gray;
+  box-shadow: 5px 0px 10px 4px #dcdadb;
+  background-color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  display: flex;
+  align-items: center;
+  padding-left: 3em;
+}
+nav.contactHeading div.country > select {
+  min-width: 150px;
+  border-color: gray;
+  border-radius: 5px;
+  font-family: "Roboto-Light", Helvetica;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+div.card_item div.contactAddress, div.card_item div.contactAction {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25em;
+  padding: 0.75rem;
+  font-family: "Roboto-Light", Helvetica;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #f4f2f3;
+  border-radius: 25px;
+}
+
+div.card_item.showItem {
+  display: grid;
+}
+
+div.card_item.hideItem {
+  display: none;
+}
+
+div.card_container {
+  padding-top: 1.5rem;
+}
+
+nav.contactHeading > span.headingText {
+  font-family: "Roboto-Bold", Helvetica;
+}
+
+div.card_item {
+  background-color: #f4f2f3;
+  color: gray;
+  box-shadow: 5px 0px 10px 4px #dcdadb;
+  background-color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 1rem;
+  display: grid;
+}
+@media (min-width: 500px) {
+  div.card_item {
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: auto auto auto;
+    gap: 0.5em;
+  }
+}
+@media (max-width: 500px) {
+  div.card_item {
+    grid-template-columns: auto;
+    grid-auto-rows: auto auto auto;
+    gap: 0.5em;
+  }
+}
+div.card_item > div {
+  font-family: "Roboto-Regular", Helvetica;
+}
+div.card_item div.headingSection {
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+@media (min-width: 500px) {
+  div.card_item div.headingSection {
+    grid-column: 1/3;
+  }
+}
+div.card_item div.headingSection div.key {
+  display: none;
+}
+div.card_item div.headingSection div.name {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family: "Roboto-Bold", Helvetica;
+}
+@media (min-width: 500px) {
+  div.card_item div.headingSection div.name {
+    text-align: left;
+  }
+}
+@media (max-width: 500px) {
+  div.card_item div.headingSection div.name {
+    text-align: left;
+  }
+}
+div.card_item div.userComment {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 500px) {
+  div.card_item div.userComment {
+    grid-column: 1/3;
+  }
+}
+@media (min-width: 500px) {
+  div.card_item div.userComment::before {
+    content: "Comment: ";
+    position: relative;
+    top: 2.5rem;
+    padding-right: 1rem;
+    font-family: "Roboto-Light", Helvetica;
+  }
+}
+@media (max-width: 500px) {
+  div.card_item div.userComment::before {
+    content: "Comment: ";
+    position: relative;
+    padding-right: 1rem;
+    font-family: "Roboto-Light", Helvetica;
+  }
+}
+div.card_item div.userComment > textarea {
+  padding: 0.25rem;
+  height: 5rem;
+  position: relative;
+  right: 0px;
+  background-color: #f4f2f3;
+  font-family: "Roboto-Bold", Helvetica;
+  border-style: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+@media (min-width: 500px) {
+  div.card_item div.userComment > textarea {
+    width: 66%;
+  }
+}
+@media (max-width: 500px) {
+  div.card_item div.userComment > textarea {
+    width: 66%;
+  }
+}
+div.card_item div.contactAction::before {
+  content: "Contact Details";
+  font-family: "Roboto-Bold", Helvetica;
+}
+@media (min-width: 500px) {
+  div.card_item div.contactAction::before {
+    text-align: left;
+  }
+}
+@media (max-width: 500px) {
+  div.card_item div.contactAction::before {
+    text-align: left;
+  }
+}
+@media (min-width: 500px) {
+  div.card_item div.contactAction {
+    text-align: left;
+  }
+}
+@media (max-width: 500px) {
+  div.card_item div.contactAction {
+    text-align: left;
+  }
+}
+div.card_item div.contactAddress::before {
+  content: "Address Details";
+  font-family: "Roboto-Bold", Helvetica;
+}
+@media (min-width: 500px) {
+  div.card_item div.contactAddress::before {
+    text-align: right;
+  }
+}
+@media (max-width: 500px) {
+  div.card_item div.contactAddress::before {
+    text-align: left;
+  }
+}
+@media (min-width: 500px) {
+  div.card_item div.contactAddress {
+    text-align: right;
+  }
+}
+@media (max-width: 500px) {
+  div.card_item div.contactAddress {
+    text-align: left;
+  }
+}

@@ -3,4 +3,19 @@ $fontStyle:'Roboto-Regular',Helvetica ;
 $fontStyleBold:'Roboto-Bold',Helvetica ;
 $fontStyleLight:'Roboto-Light',Helvetica ;
 
+$backgroundColorDefault:#f4f2f3;
+
+@mixin defaultFontStyle{
+    font-family: $fontStyle;
+}
+
+@mixin defaultFontStyleLight{
+    font-family: $fontStyleLight;
+}
+
+@mixin defaultFontStyleBold{
+    font-family: $fontStyleBold;
+}
+
+
 

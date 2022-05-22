@@ -1,4 +1,4 @@
-@use './headingStyles.scss' as headingStyle;
+@use './headingStyles.scss' as headingStyle with ($page_type:"contacts");
 @use './cardStyles.scss' as cardStyle;
 @use './settings.scss' as setting;
 

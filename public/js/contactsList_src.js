@@ -559,6 +559,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/scss/detailCache.scss":
+/*!*****************************************!*\
+  !*** ./resources/scss/detailCache.scss ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/scss/login.scss":
+/*!***********************************!*\
+  !*** ./resources/scss/login.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/regenerator-runtime/runtime.js":
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
@@ -1434,6 +1460,8 @@ try {
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/contactsList_src": 0,
+/******/ 			"css/login": 0,
+/******/ 			"css/detailCache": 0,
 /******/ 			"css/contactsPage": 0
 /******/ 		};
 /******/ 		
@@ -1484,8 +1512,10 @@ try {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/contactsPage"], () => (__webpack_require__("./resources/js/contactsList_src.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/contactsPage"], () => (__webpack_require__("./resources/scss/contactsPage.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/login","css/detailCache","css/contactsPage"], () => (__webpack_require__("./resources/js/contactsList_src.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/login","css/detailCache","css/contactsPage"], () => (__webpack_require__("./resources/scss/contactsPage.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/login","css/detailCache","css/contactsPage"], () => (__webpack_require__("./resources/scss/detailCache.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/login","css/detailCache","css/contactsPage"], () => (__webpack_require__("./resources/scss/login.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

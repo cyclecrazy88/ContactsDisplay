@@ -1,0 +1,184 @@
+body {
+  background-color: #f4f2f3;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("/Roboto/Roboto-Regular.ttf") format("TrueType");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("/Roboto/Roboto-Bold.ttf") format("TrueType");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("/Roboto/Roboto-Light.ttf") format("TrueType");
+  font-weight: 400;
+}
+div.loginContainer {
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+}
+div.loginContainer div.loginSection {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f4f2f3;
+  color: gray;
+  box-shadow: 5px 0px 10px 4px #dcdadb;
+  background-color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  padding-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+@media (min-width: 992px) {
+  div.loginContainer div.loginSection {
+    width: 50%;
+    min-width: 200px;
+    max-width: 400px;
+  }
+}
+@media (max-width: 992px) {
+  div.loginContainer div.loginSection {
+    width: 90%;
+  }
+}
+div.loginContainer div.loginSection > h1 {
+  text-align: center;
+  width: 100%;
+  padding-top: 1rem;
+}
+div.loginContainer div.loginSection > button {
+  margin-top: 1rem;
+  position: relative;
+  right: 0px;
+  background-color: #f4f2f3;
+  font-family: "Roboto-Bold", Helvetica;
+  border-style: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  cursor: -webkit-grab;
+  cursor: grab;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 992px) {
+  div.loginContainer div.loginSection > button {
+    width: 200px;
+    max-width: 90%;
+    min-width: 200px;
+  }
+}
+@media (min-width: 500px) and (max-width: 992px) {
+  div.loginContainer div.loginSection > button {
+    min-width: 200px;
+    max-width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  div.loginContainer div.loginSection > button {
+    min-width: 70%;
+    max-width: 90%;
+  }
+}
+div.loginContainer div.loginSection > button:hover {
+  opacity: 0.5;
+}
+div.loginContainer div.loginSection div.registerButton {
+  padding-top: 10px;
+}
+div.loginContainer div.loginSection div {
+  margin: auto;
+  text-align: center;
+}
+div.loginContainer div.loginSection div input.email {
+  margin-top: 5px;
+}
+div.loginContainer div.loginSection div input[type=text],
+div.loginContainer div.loginSection div input[type=password],
+div.loginContainer div.loginSection div span, div.loginContainer div.loginSection div div {
+  margin-bottom: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: #f4f2f3;
+  border-radius: 5px;
+  font-family: "Roboto-Light", Helvetica;
+  font-size: 15px;
+}
+@media (min-width: 992px) {
+  div.loginContainer div.loginSection div input[type=text],
+div.loginContainer div.loginSection div input[type=password],
+div.loginContainer div.loginSection div span, div.loginContainer div.loginSection div div {
+    width: 200px;
+    max-width: 90%;
+    min-width: 200px;
+  }
+}
+@media (min-width: 500px) and (max-width: 992px) {
+  div.loginContainer div.loginSection div input[type=text],
+div.loginContainer div.loginSection div input[type=password],
+div.loginContainer div.loginSection div span, div.loginContainer div.loginSection div div {
+    min-width: 200px;
+    max-width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  div.loginContainer div.loginSection div input[type=text],
+div.loginContainer div.loginSection div input[type=password],
+div.loginContainer div.loginSection div span, div.loginContainer div.loginSection div div {
+    min-width: 70%;
+    max-width: 90%;
+  }
+}
+div.loginContainer div.loginSection div input[type=text]::-moz-placeholder, div.loginContainer div.loginSection div input[type=password]::-moz-placeholder, div.loginContainer div.loginSection div span::-moz-placeholder, div.loginContainer div.loginSection div div::-moz-placeholder {
+  font-family: "Roboto-Light", Helvetica;
+  color: gray;
+}
+div.loginContainer div.loginSection div input[type=text]:-ms-input-placeholder, div.loginContainer div.loginSection div input[type=password]:-ms-input-placeholder, div.loginContainer div.loginSection div span:-ms-input-placeholder, div.loginContainer div.loginSection div div:-ms-input-placeholder {
+  font-family: "Roboto-Light", Helvetica;
+  color: gray;
+}
+div.loginContainer div.loginSection div input[type=text]::placeholder,
+div.loginContainer div.loginSection div input[type=password]::placeholder,
+div.loginContainer div.loginSection div span::placeholder, div.loginContainer div.loginSection div div::placeholder {
+  font-family: "Roboto-Light", Helvetica;
+  color: gray;
+}
+div.loginContainer div.loginSection div input[type=text],
+div.loginContainer div.loginSection div input[type=password] {
+  display: block;
+}
+div.loginContainer div.loginSection div input.register {
+  /*
+    &::after{
+        content:"Register: ";
+        position:relative;
+        top:-3px;
+        font-family: setting.$fontStyleLight;
+        color:darkgray;
+    }
+    */
+}
+div.loginContainer div.loginSection div input.register:checked {
+  background-color: darkgray;
+  color: darkgray;
+}
+div.loginContainer div.loginSection div div.registerFields {
+  display: none;
+}
+div.loginContainer div.loginSection div input.register:checked + div.registerFields {
+  display: initial;
+}

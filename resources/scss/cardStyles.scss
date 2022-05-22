@@ -1,10 +1,8 @@
 @use './settings.scss' as setting;
+@use './buttonStyle.scss' as button;
 $cardColour: #ffffff;
 
-%button-transisition {
-  transition-property: opacity;
-  transition-duration: 0.25s;
-}
+
 
 // Heading Card Style -- Generic card styling
 @mixin headingCardItem($active: 0) {
@@ -34,17 +32,7 @@ $cardColour: #ffffff;
   }
 
   > div > button {
-    position: relative;
-    right: 0px;
-    background-color: #f4f2f3;
-    font-family: setting.$fontStyleBold;
-    border-style: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 15px;
-    cursor: grab;
+    @include button.button_settings;
     @extend %button-transisition;
 
     &:hover {

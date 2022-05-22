@@ -11,7 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
+ mix.disableNotifications();
+
 mix.js('resources/js/contactsList_src.js', 'public/js')
-    .sass('resources/scss/contactsPage.scss', 'public/css', [
-        //
-    ]);
+    .sass('resources/scss/contactsPage.scss', 'public/css', [])
+    .sass('resources/scss/detailCache.scss', 'public/css', [])
+    .sass('resources/scss/login.scss', 'public/css', []); //.sourceMaps()
+
